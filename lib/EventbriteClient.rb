@@ -1,15 +1,16 @@
 require "EventbriteClient/version"
 require 'rest_client'
+require 'json'
 
 module EventbriteClient
   class API
-    base_url 'https:/www.eventbrite.com'
-    @auth = {}
-    @data_type = 'json'
-     
     # constructor
     def initialize( auth_tokens )
-      if auth_tokens.is_a? Hash
+      @base_url = "https://www.eventbrite.com"
+      @auth = {app_key: "IT7XL4RVM2CGSGTVLX"}
+      @data_type = "json"
+
+      if auth_tokens != nil and auth_tokens.is_a? Hash
         if auth_tokens.include? :app_key
         #use api_key OR api_key + user_key OR api_key+email+pass
         if auth_tokens.include? :user_key
@@ -19,20 +20,20 @@ module EventbriteClient
           # read-only access to public data
           @auth = {app_key: auth_tokens[:app_key]}
         end 
-	end                                                                                        end
+      end                                                                                        end
     end
 
-  def method_request( method, params )
-    #merge auth params into our request querystring
+  def event_search (params)
     querystring = @auth.merge( params.is_a?(Hash) ? params : {} )
-    resp = RestClient.get "#{base_url}/#{@data_type}/#{method.to_s}", {:params => {querystring}}
-    
-    
-    return resp
-  end
+    url = @base_url + "/#{@data_type}/event_search"
+    data = RestClient.get url, {:params => querystring}
+    result = JSON.parse(data)
 
-  def method_missing(method, *args, &block)
-    self.method_request(method, args[0])
+    # if the hash has 'Error' as a key, we raise an error
+    if result.has_key? 'Error'
+              raise "web service error"
+    end
+    return result
   end
 
   end

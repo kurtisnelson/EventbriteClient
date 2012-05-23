@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "EventbriteClient"
   gem.require_paths = ["lib"]
   gem.version       = EventbriteClient::VERSION
+
+  gem.add_dependency('rest-client', '>= 1.6.7')
+  gem.add_dependency('json', '>= 1.7')
 end
