@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/kurtisnelson/EventbriteClient.png?branch=master)](http://travis-ci.org/kurtisnelson/EventbriteClient)
 
-A library for querying the EventBrite API.
+A library for querying the EventBrite API. It is [published](https://rubygems.org/gems/EventbriteClient) on RubyGems.
 
 ## Installation
 
