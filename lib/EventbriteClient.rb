@@ -2,9 +2,16 @@ require "EventbriteClient/version"
 require 'rest_client'
 require 'json'
 
+#A library for using the EventBrite API
 module EventbriteClient
+  #Makes RESTful API calls
   class API
-    # constructor
+    # Setup a session with the specified API keys
+    #
+    # @param [Hash{String=>String}] auth_tokens Eventbrite API keys
+    # @option auth_tokens [String] :app_key Application key
+    # @option auth_tokens [String] :user_key Optional user key
+    #
     def initialize( auth_tokens )
       @base_url = "https://www.eventbrite.com"
       @auth = {:app_key => "IT7XL4RVM2CGSGTVLX"}
@@ -23,6 +30,9 @@ module EventbriteClient
       end                                                                                        end
     end
 
+  # Search for and return an array of events
+    # @param [Hash{String=>String,Array,Integer}] params API request parameters
+    # @see http://developer.eventbrite.com/doc/events/event_search/ Event Search Documentation
   def event_search (params)
     querystring = @auth.merge( params.is_a?(Hash) ? params : {} )
     url = @base_url + "/#{@data_type}/event_search"
