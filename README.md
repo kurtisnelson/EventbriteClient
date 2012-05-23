@@ -1,6 +1,8 @@
 # EventbriteClient
 
-TODO: Write a gem description
+[![Build Status](https://secure.travis-ci.org/kurtisnelson/EventbriteClient.png?branch=master)](http://travis-ci.org/kurtisnelson/EventbriteClient)
+
+A library for querying the EventBrite API.
 
 ## Installation
 
@@ -18,7 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+	eb = EventbriteClient::API.new(:app_key => "YOUR KEY")
+        events = eb.event_search({:keywords => ("food", "fun")})
+
+Currently just event search is implemented. All parameters [documented](http://developer.eventbrite.com/doc/events/event_search/) should be supported.
 
 ## Contributing
 
