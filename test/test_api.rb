@@ -8,5 +8,7 @@ class TestApi < Test::Unit::TestCase
     def test_event_search
         events = @eb.event_search({})
         assert events.count > 0, "No events were returned"
+        events = @eb.event_search({:keywords => ("food")})
+        assert events.count > 0, "The keywords broke, or nobody likes food"
     end
 end
