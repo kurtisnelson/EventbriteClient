@@ -1,6 +1,10 @@
 # EventbriteClient
+[![Build Status](https://secure.travis-ci.org/kurtisnelson/EventbriteClient.png)](http://travis-ci.org/kurtisnelson/EventbriteClient)
+[![Gem Version](https://badge.fury.io/rb/EventbriteClient.png)](http://badge.fury.io/rb/EventbriteClient)
+[![Code Climate](https://codeclimate.com/github/kurtisnelson/EventbriteClientt.png)](https://codeclimate.com/github/kurtisnelson/EventbriteClient)
+[![Coverage Status](https://coveralls.io/repos/kurtisnelson/EventbriteClient/badge.png?branch=master)](https://coveralls.io/r/kurtisnelson/EventbriteClient)
+[![Dependency Status](https://gemnasium.com/kurtisnelson/EventbriteClient.png)](https://gemnasium.com/kurtisnelson/EventbriteClient)
 
-[![Build Status](https://secure.travis-ci.org/kurtisnelson/EventbriteClient.png?branch=master)](http://travis-ci.org/kurtisnelson/EventbriteClient)
 
 A library for querying the EventBrite API. It is [published](https://rubygems.org/gems/EventbriteClient) on RubyGems. Full documentation is at [rubydoc.info](http://rubydoc.info/gems/EventbriteClient/)
 
